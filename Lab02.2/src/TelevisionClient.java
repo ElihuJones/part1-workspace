@@ -8,15 +8,23 @@ public class TelevisionClient {
 
     tv1.turnOn();
     tv1.turnOff();
-        
-    Television tv2 = new Television();
+
+    System.out.printf("%d television instances createdd%n", Television.getInstanceCount());
+
+    Television tv2 = new Television("Sony");
     tv2.setBrand("Samsung");
     tv2.setVolume(32);
 
     tv2.turnOn();
     tv2.turnOff();
 
+    System.out.printf("%d television instances createdd%n", Television.getInstanceCount());
+
     System.out.println(tv1.toString()); //These two lines are identical
-    System.out.println(tv1);
+    System.out.println(tv2);
+
+    Television tv3 = new Television("LG");
+    System.out.println(tv3);
+    System.out.printf("%d television instances createdd%n", Television.getInstanceCount());
   }
 }

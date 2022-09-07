@@ -1,17 +1,39 @@
 public class Television {
 
-  private String brand; // brand name
+  public static final int MIN_VOLUME = 0;
+  public static final int MAX_VOLUME = 100;
 
-  private int volume;   // current volume
+  private static int instanceCount = 0;
+  private String brand; // brand name
+  private int volume;   // current volume level
+
+  public Television() {
+    instanceCount++;
+  }
+
+  public Television(String brand) {
+    this();
+    setBrand(brand);
+  }
+
+  public Television (String brand, int volume) {
+    this(brand);
+    setVolume(volume);
+  }
 
   // Model/Business Methods --> public methods
   public void turnOn () {
     boolean isConnected = verifyInternetConnection();
     System.out.println("Turning on your " + brand + " TV to volume " + volume);
+
   }
 
   public void turnOff() {
     System.out.println("Shutting down " + brand + " TV, goodbye ");
+  }
+
+  public static int getInstanceCount() {
+    return instanceCount;
   }
 
   public String getBrand() {
@@ -19,7 +41,11 @@ public class Television {
   }
 
   public void setBrand(String brand) {
-    this.brand = brand;
+    if (brand.equals("Samsung") || brand.equals("LG") || brand.equals("Sony") || brand.equals("Toshiba")) {
+      this.brand = brand;
+    } else {
+      System.out.printf("This is NOT a valid brand. %n", brand);
+    }
   }
 
   public int getVolume() {
@@ -27,7 +53,11 @@ public class Television {
   }
 
   public void setVolume(int volume) {
-    this.volume = volume;
+    if (volume < MIN_VOLUME || volume > MAX_VOLUME) {
+      System.out.printf("%d is invalid; volume must be between %d and %d (inclusive).%n", volume, MIN_VOLUME, MAX_VOLUME);
+    } else {
+      this.volume = volume;
+    }
   }
 
   //Helper Methods --> private methods
