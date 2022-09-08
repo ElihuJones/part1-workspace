@@ -44,7 +44,7 @@ public class Television {
     if (brand.equals("Samsung") || brand.equals("LG") || brand.equals("Sony") || brand.equals("Toshiba")) {
       this.brand = brand;
     } else {
-      System.out.printf("This is NOT a valid brand. %n", brand);
+      System.out.printf("%s This is NOT a valid brand. %n", brand);
     }
   }
 
