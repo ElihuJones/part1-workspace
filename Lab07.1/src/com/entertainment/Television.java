@@ -1,3 +1,5 @@
+package com.entertainment;
+
 public class Television {
 
   public static final int MIN_VOLUME = 0;
@@ -79,6 +81,6 @@ public class Television {
   }
 
   public String toString() {
-    return "Television: brand = " + brand + ", volume = " + volume + " display = " + display;
+    return "com.entertainment.Television: brand = " + brand + ", volume = " + volume + " display = " + display;
   }
 }

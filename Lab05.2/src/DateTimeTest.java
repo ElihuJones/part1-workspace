@@ -14,6 +14,7 @@
  */
 import java.time.*;
 import java.time.format.*;
+import jdk.jshell.execution.LocalExecutionControl;
 
 class DateTimeTest {
 
@@ -22,17 +23,25 @@ class DateTimeTest {
      * To run one test method at a time, uncomment the call to the one you want to execute.
      */
     public static void main(String[] args) {
-        // testNow();
-        // testCreate();
-        // testParse();
-        // testFormat();
+
+        testNow();
+         testCreate();
+         testParse();
+         testFormat();
     }
 
     /**
      * TASK: create current date, time, and date-time via now() and then print them.
      */
     public static void testNow() {
-        // TODO
+        LocalDateTime timestamp = LocalDateTime.now();
+        System.out.println("LocalDateTime : " + timestamp);
+
+        LocalDate date = LocalDate.now();
+        System.out.println("Local Date is : " + date);
+
+        LocalTime time = LocalTime.now();
+        System.out.println("Local Time is : " + time);
     }
 
     /**
@@ -40,9 +49,13 @@ class DateTimeTest {
      */
     public static void testCreate() {
         // TODO: create your birthday via of(). What day of the week were you born on?
-
+        LocalDate bday = LocalDate.of(1979, 11,12);
+        System.out.println("My Birthday is : " + bday);
         // TODO: use of() to create a value representing the 1st lunar landing - it happened on 7/20/69 at 3:18pm Eastern Time.
         // NOTE: ignore time-zone, just assume Eastern Time is the local time.
+        LocalDate landing = LocalDate.of(1969, 07, 20);
+        System.out.println(landing);
+        LocalDate today = LocalDate.now();
     }
 
     /**
@@ -59,6 +72,10 @@ class DateTimeTest {
      */
     public static void testFormat() {
         LocalDate hastings = LocalDate.of(1066, 10, 14);
+        DateTimeFormatter usDateFormat = DateTimeFormatter.ofPattern("M/d/yyyy");
+        System.out.println(usDateFormat.format(hastings));
+        DateTimeFormatter intlFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        System.out.println(intlFormat.format(hastings));
 
         // TODO: 10/14/1066
 

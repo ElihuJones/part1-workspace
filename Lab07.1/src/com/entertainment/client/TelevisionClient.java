@@ -1,4 +1,6 @@
-import java.sql.SQLOutput;
+package com.entertainment.client;
+
+import com.entertainment.Television;
 
 public class TelevisionClient {
 
