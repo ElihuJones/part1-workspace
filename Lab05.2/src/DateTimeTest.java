@@ -14,6 +14,7 @@
  */
 import java.time.*;
 import java.time.format.*;
+import java.util.Date;
 import jdk.jshell.execution.LocalExecutionControl;
 
 class DateTimeTest {
@@ -48,14 +49,13 @@ class DateTimeTest {
      * TASK: implement the TODOs and print your results.
      */
     public static void testCreate() {
-        // TODO: create your birthday via of(). What day of the week were you born on?
         LocalDate bday = LocalDate.of(1979, 11,12);
-        System.out.println("My Birthday is : " + bday);
-        // TODO: use of() to create a value representing the 1st lunar landing - it happened on 7/20/69 at 3:18pm Eastern Time.
+        System.out.println("My Birthday is: " + bday);
+
         // NOTE: ignore time-zone, just assume Eastern Time is the local time.
-        LocalDate landing = LocalDate.of(1969, 07, 20);
+        LocalDateTime landing = LocalDateTime.of(1969, 7, 20, 15, 18);
         System.out.println(landing);
-        LocalDate today = LocalDate.now();
+
     }
 
     /**
@@ -63,9 +63,15 @@ class DateTimeTest {
      */
     public static void testParse() {
         // TODO: create your birthday by parsing a text representation in standard format ("yyyy-MM-dd").
+        LocalDate birthday = LocalDate.parse("1963-12-17");
+        System.out.println(birthday);
 
         // OPTIONAL: now create it by parsing text in the form "2/6/2014" (this is Feb 6, not Jun 2).
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+        birthday = LocalDate.parse("12/17/1963", formatter);
+        System.out.println(birthday);
     }
+
 
     /**
      * TASK: create formatted display strings for the date below, in the specified formats.
@@ -78,9 +84,7 @@ class DateTimeTest {
         System.out.println(intlFormat.format(hastings));
 
         // TODO: 10/14/1066
-
-        // TODO: 14-10-1066
-
-        // OPTIONAL: October 14, 1066
+        DateTimeFormatter longFormat = DateTimeFormatter.ofPattern("MM d, yyyy");
+        System.out.println(longFormat.format(hastings));
     }
 }

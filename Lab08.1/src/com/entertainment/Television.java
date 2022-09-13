@@ -29,6 +29,8 @@ public class Television {
 
     // PROPERTIES or ATTRIBUTES, generally called "fields" or "instance variables"
     // these live *inside each instance*
+    private final Tuner tuner = new Tuner();
+
     private String brand;
     private int volume;
     private DisplayType display = DisplayType.LED;
@@ -57,6 +59,14 @@ public class Television {
     public void turnOn() {
         boolean isConnected = verifyInternetConnection();
         System.out.println("Turning on your " + brand + " television to volume " + volume);
+    }
+
+    public void changeChannel(String channel) {
+        tuner.setChannel(channel);
+    }
+
+    public String getCurrentChannel() {
+        return tuner.getChannel();
     }
 
     public void turnOff() {
@@ -121,6 +131,7 @@ public class Television {
         return "com.entertainment.Television" +
                 ": brand=" + getBrand() +
                 ", volume=" + getVolume() +
-                ", display=" + getDisplay();
+                ", display=" + getDisplay() +
+                ", channel=" + getCurrentChannel(); //Added from Lab08.1
     }
 }
