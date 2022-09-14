@@ -26,6 +26,8 @@ class HRClient {
         dept.addEmployee(new Employee("Jason", LocalDate.of(1990, 8, 24)));
         dept.addEmployee(new Employee("Julie", LocalDate.of(2000, 2, 2)));
 
+        //todo create at least 1 HourlyEmployee and 1 SalariedEmployee passing to the addEmployee method. page 110
+
         // list its Employees
         System.out.println("\nList employees:");
         dept.listEmployees();
