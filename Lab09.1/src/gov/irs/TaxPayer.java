@@ -20,5 +20,10 @@ public interface TaxPayer {
     public static final double HOURLY_TAX_RATE = 0.25;
     public static final double SALARIED_TAX_RATE = 0.30;
     
-    public void payTaxes();
+    void payTaxes();
+
+    default double getStandardDeduction() {
+        return 7500.0;
+    }
+
 }
