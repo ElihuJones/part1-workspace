@@ -19,6 +19,12 @@ public class HourlyEmployee extends Employee {
     setRate(rate);
     setHours(hours);
   }
+//Business methods behaviors
+  public void pay() {
+    System.out.printf("%s is paid hourly, for a total of %,.2f%n", getName(),getHours() * getRate());
+    // %s is getName(),  %,.2f is product of getHours() and getRate()
+
+  }
 
   public double getRate() {
     return rate;
@@ -38,19 +44,11 @@ public class HourlyEmployee extends Employee {
 
   @Override
   public String toString() {
-//    return super.toString() +
-//        ", rate = " + rate +
-//        ", hours = " + hours;
-      return  String.format("%s, rate=%,.2f, hours=%,.2f", super.toString(), getRate(), getHours());
+    return super.toString() +               // string concatenation
+        ", rate = " + rate +
+        ", hours = " + hours;
+    //      string formatting
+    //      return  String.format("%s, rate=%,.2f, hours=%,.2f", super.toString(), getRate(), getHours());
   }
-
-  //All this needs to be done for Hourly and Salaried
-  // todo pg 109 declare and implement a constructor that takes time, hireDate, rate, and hours as parameter
-
-  //todo generate setters and getters for rate and hours
-
-  // todo override toString
-
-  //todo
 
 }

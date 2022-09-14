@@ -13,7 +13,7 @@ class ConcertTimeTest {
 
     public static void main(String[] args) {
         listAvailableZoneIds();
-        // testLiveConcert();
+         testLiveConcert();
     }
 
     /*

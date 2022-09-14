@@ -2,14 +2,15 @@ package com.hr.personnel;
 
 import java.time.LocalDate;
 
-public class SalariedEmployee {
+public class SalariedEmployee extends Employee {
 
+  //Fields
   private double salary;
 
   public SalariedEmployee() {
-
   }
 
+  //Constructors
   public SalariedEmployee (String name, LocalDate hireDate) {
     super(name, hireDate);
   }
@@ -19,6 +20,11 @@ public class SalariedEmployee {
     setSalary(salary);
   }
 
+  //Business methods
+  public void pay() {
+      System.out.printf("%s is paid a salary of %,.2f%n", getName(), getSalary());
+//    System.out.println(getName() + " is paid a salary of " + getSalary());
+  }
   public double getSalary() {
     return salary;
   }
@@ -29,6 +35,7 @@ public class SalariedEmployee {
 
   @Override
   public String toString() {
+//    return super.toString() + ", salary=" + getSalary();
     return String.format("%s, salary=%,.2f", super.toString(), getSalary());
 
   }
