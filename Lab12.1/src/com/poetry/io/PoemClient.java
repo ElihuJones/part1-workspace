@@ -46,7 +46,6 @@ public class PoemClient {
             String line;
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
-
             }
         }
         catch (IOException e) {
