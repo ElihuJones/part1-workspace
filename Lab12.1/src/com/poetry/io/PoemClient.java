@@ -67,8 +67,8 @@ public class PoemClient {
      */
     private static void writePoem() {
         try (PrintWriter writer = new PrintWriter(new FileWriter("haiku.txt"))) {
-            writer.println("Man this is so cool%n");
-            writer.println("To see you all here with me%n");
+            writer.println("Man this is so cool");
+            writer.println("To see you all here with me");
             writer.println("See you next time. Bye!");
 
             } catch (IOException e) {
